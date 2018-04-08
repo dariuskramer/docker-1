@@ -1,0 +1,9 @@
+docker run \
+	--detach \
+	--name lair \
+	--publish 8080:80 \
+	--link spawning-pool:mysql \
+	wordpress
+
+# Tester wordpress:
+# curl (docker-machine ip):8080
