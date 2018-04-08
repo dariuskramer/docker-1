@@ -8,4 +8,4 @@ docker run \
 	mysql
 
 # Tester la connection
-# docker run -it --rm mysql mysql -h(docker inspect -f '{{(index .NetworkSettings.Networks "bridge").IPAddress}}' spawning-pool) -P3306 -uroot -pKerrigan -Dzerglings
+# docker run -it --rm mysql mysql -h(docker inspect -f '{{ .NetworkSettings.IPAddress }}' spawning-pool) -P3306 -uroot -pKerrigan -Dzerglings
