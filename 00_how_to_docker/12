@@ -1,0 +1,11 @@
+docker run \
+	--detach \
+	--name spawning-pool \
+	--restart=on-failure \
+	--env MYSQL_ROOT_PASSWORD=Kerrigan \
+	--env MYSQL_DATABASE=zerglings \
+	--mount type=volume,source=hatchery,target=/var/lib/mysql \
+	mysql
+
+# Tester la connection
+# docker run -it --rm mysql mysql -h(docker inspect -f '{{(index .NetworkSettings.Networks "bridge").IPAddress}}' spawning-pool) -P3306 -uroot -pKerrigan -Dzerglings
