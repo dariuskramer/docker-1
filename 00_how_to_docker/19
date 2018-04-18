@@ -1,0 +1,20 @@
+mkdir $HOME/Abathur
+cat >$HOME/Abathur/hello.py <<EOF
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "<h1>Hello World!</h1>"
+EOF
+
+docker run \
+	--rm \
+	--detach \
+	--name Abathur \
+	--mount type=bind,source=$HOME/Abathur,target=/root \
+	--publish 3000:3000 \
+	--detach \
+	python:2-slim sh -c 'pip install Flask && FLASK_APP=/root/hello.py python -m flask run --host=0.0.0.0 --port=3000'
+
+docker logs Abathur
