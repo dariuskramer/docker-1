@@ -1,0 +1,7 @@
+docker swarm join --token SWMTKN-1-40tn01yrk7jfloubj9x7yh8dqu2zg0k3hkha4i2hdq4766qtpa-31m5pb9rrw9ytxc2dxazk6437 192.168.99.101:2377
+
+# Pour obtenir le token permettant de joindre le Swarm
+# docker swarm join-token worker
+
+# Tout faire en une commande, sans devoir changer de VM
+# docker-machine ssh Aiur (docker swarm join-token worker|head -n3|tail -n1)
