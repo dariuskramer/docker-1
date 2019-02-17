@@ -1,3 +1,8 @@
-docker-machine create --driver virtualbox --virtualbox-boot2docker-url https://github.com/boot2docker/boot2docker/releases/download/v18.06.0-ce/boot2docker.iso Char
+docker-machine create \
+	--driver virtualbox \
+	--virtualbox-cpu-count '-1' \
+	--virtualbox-memory '4096' \
+	--virtualbox-boot2docker-url https://github.com/boot2docker/boot2docker/releases/download/v18.06.0-ce/boot2docker.iso \
+	Char
 
-# Éviter le bug à la question 26
+# La version 18.06 permet d'éviter le fameux bug de la question 26
