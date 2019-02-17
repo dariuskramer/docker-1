@@ -1,3 +1,2 @@
-docker pull nginx:alpine
-docker run --name overlord --publish 5000:80 --restart=on-failure --detach nginx:alpine
+docker run --name overlord --publish 5000:80 --restart=always --detach nginx:alpine
 curl (docker-machine ip Char):5000
