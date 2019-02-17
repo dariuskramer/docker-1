@@ -6,4 +6,4 @@ docker run \
 	wordpress
 
 # Tester wordpress:
-# curl (docker-machine ip Char):8080
+# open http://(docker-machine ip Char):8080

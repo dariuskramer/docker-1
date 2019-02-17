@@ -1,4 +1,4 @@
-mkdir $HOME/Abathur
+mkdir -p $HOME/Abathur
 echo >$HOME/Abathur/hello.py '\
 from flask import Flask
 app = Flask(__name__)
@@ -16,4 +16,8 @@ docker run \
 	--detach \
 	python:2-slim sh -c 'pip install Flask && FLASK_APP=/root/hello.py python -m flask run --host=0.0.0.0 --port=3000'
 
+
+echo '>>> Wait 5s for Python to start'
+sleep 5
 docker logs Abathur
+curl http://(docker-machine ip Char):3000

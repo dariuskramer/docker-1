@@ -7,6 +7,6 @@ docker run \
 	--mount type=volume,source=hatchery,target=/var/lib/mysql \
 	mysql --default-authentication-plugin=mysql_native_password
 
-# Tester la connection
+# Tester la connection (attendre quelques secondes que MySQL s'initialise)
 # docker run -it --rm mysql mysql --host=(docker inspect -f '{{ .NetworkSettings.IPAddress }}' spawning-pool) -uroot -pKerrigan -Dzerglings
 # Vérifier la méthode de connexion: --default-auth=mysql_native_password
