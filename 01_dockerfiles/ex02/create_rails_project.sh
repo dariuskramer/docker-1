@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
-docker run -it --rm -v $PWD:/opt/app -p 8080:8080 -w /opt/app ruby sh -c "\
-	       rm -rf helloworld &&\
-	       apt update && apt install -y nodejs &&\
-	       gem install rails &&\
-	       rails new helloworld &&\
-	       cd helloworld &&\
-	       bundle install &&\
-	       rails server -b 0.0.0.0 -p 8080"
+docker run -it \
+	--rm \
+	--mount type=bind,source="$(pwd)",target=/opt/app \
+	-w /opt/app \
+	ruby:2.4 \
+	/bin/bash -c "gem install rails && rails new helloworld"
+
+sed -i '' "s|gem 'sqlite3'|&, '~> 1.3.6'|" helloworld/Gemfile
